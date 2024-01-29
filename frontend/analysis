@@ -1,0 +1,5 @@
+CourseDetail.vue ---> CourseDetailView.vue ---> App.vue
+
+
+
+CourseFilter.vue + CourseList.vue ---> CoursesView.vue ---> App.vue
