@@ -31,8 +31,8 @@
     },
     data(){
       return {
-        courses : courses,
-        filteredCourses : courses
+        courses: null,
+        filteredCourses: null
       }
     },
   created(){
@@ -42,10 +42,10 @@
     methods:{
       getCourses(){
         axios.get("http://127.0.0.1:8000/courses/api")
-        .then(response => {
-          this.courses = response.data;
-          this.filterCourses = response.data;
-        })
+          .then(response => {
+            this.courses = response.data;
+            this.filteredCourses = response.data;
+          })
       },
       
       filterCourse(selectedCategory){
