@@ -1,8 +1,8 @@
 <template>
 <div class="row mt-5">
-  <div class="col-lg-3" v-for="course in courses" :key="course.id">
-    <div class="card">
-      <img :src="course.image" class="card-img-top img-fluid" alt="...">
+  <div class="col-lg-4" v-for="course in courses" :key="course.id">
+    <div class="card mb-3">
+      <img :src="course.image" class="card-img-top  image" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{ course.name }}</h5>
         <p>{{ course.category }}</p>
@@ -25,3 +25,11 @@
     props: ['courses']
   }
 </script>
+
+<style>
+  .image {
+    width: 300px;
+    height: 150px;
+  }
+</style>
+
