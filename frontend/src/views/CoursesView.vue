@@ -48,11 +48,13 @@
           })
       },
       
-      filterCourse(selectedCategory){
+      async filterCourse(selectedCategory){
         if(selectedCategory.length == 0 ){
           this.filterCourse = this.courses
         }else{
-        this.filteredCourses = this.courses.filter(course =>selectedCategory.includes(course.category_id) )
+          const categoryIds = selectedCategory.join(',')
+          const response = await axios.get(`http://127.0.0.1:8000/courses/api/?category=${categoryIds}`)
+          this.filteredCourses = response.data
         }
       }
     }
