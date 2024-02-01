@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-primary"> </button>
+    <button class="btn btn-primary" @click="toggleDarkMode"> </button>
 
 </template>
 
@@ -7,7 +7,19 @@
 
 <script>
     export default {
-        name: 'DarkMode'
+        name: 'DarkMode',
+        props: {
+            darkMode: {
+                type: Boolean , defaulte: false
+            }
+        },
+
+        methods: {
+            toggleDarkMode() {
+                this.$emit('dark-mode-change' , )
+
+            }
+        }
     }
 
 
