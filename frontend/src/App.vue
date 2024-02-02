@@ -1,8 +1,10 @@
 
 <template>
-  <Navbar />
+  <body :class="{ 'dark-mode':darkMode }">
+    <Navbar :darkMode="darkMode" @dark-mode-change="toggleDarkMode" />
 
-  <RouterView />
+    <RouterView />
+  </body>
 </template>
 
 
@@ -13,8 +15,33 @@
   export default {
     name:'App',
     components: {
-      Navbar
+      Navbar,
+    },
+    data() {
+      return{
+        darkMode: false
+      }        
+    },
+    mounted() {
+      this.darkMode = localStorage.getItem('darkMode') == 'true';
+    },
+    methods: {
+      toggleDarkMode(darkMode) {
+        this.darkMode = darkMode
+        localStorage.setItem('darkMode',this.darkMode)
+      }
     }
   }
 
 </script>
+
+<style>
+html.dark-mode{
+  background-color: white;
+}
+
+body.dark-mode{
+  background-color: black;
+  color: white;
+}
+</style>

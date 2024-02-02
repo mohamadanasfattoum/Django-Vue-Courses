@@ -13,7 +13,7 @@
             <RouterLink class="nav-link active" aria-current="page" to="/">Courses</RouterLink>
           </li>
         </ul>
-        <DarkMode :darkMode="darkMode" />
+        <DarkMode :darkMode="darkMode" @dark-mode-change="toggleDarkMode" />
       </div>
     </div>
   </nav>
@@ -34,6 +34,12 @@
         type: Boolean , defaulte: false
       }
     },
+    methods: {
+      toggleDarkMode() {
+        this.$emit('dark-mode-change' , !this.darkMode)
+
+      }
+    }
 
   }
 </script>
