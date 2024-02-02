@@ -12,7 +12,8 @@
           <li class="nav-item">
             <RouterLink class="nav-link active" aria-current="page" to="/">Courses</RouterLink>
           </li>
-        </ul>  
+        </ul>
+        <DarkMode :darkMode="darkMode" />
       </div>
     </div>
   </nav>
@@ -21,8 +22,18 @@
 
 
 <script>
+  import DarkMode from './DarkMode.vue';
+
   export default {
-    name: 'Navbar'
+    name: 'Navbar',
+    components: {
+      DarkMode,
+    },
+    props: {
+      darkMode: {
+        type: Boolean , defaulte: false
+      }
+    },
 
   }
 </script>

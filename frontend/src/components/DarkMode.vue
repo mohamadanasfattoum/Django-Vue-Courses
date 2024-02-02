@@ -1,5 +1,5 @@
 <template>
-    <button class="btn btn-primary" @click="toggleDarkMode"> </button>
+    <button class="btn btn-primary" @click="toggleDarkMode"> Dark Mode </button>
 
 </template>
 
@@ -16,7 +16,7 @@
 
         methods: {
             toggleDarkMode() {
-                this.$emit('dark-mode-change' , )
+                this.$emit('dark-mode-change' , !this.darkMode)
 
             }
         }
