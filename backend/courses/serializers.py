@@ -10,7 +10,7 @@ class CategorySerializers(serializers.ModelSerializer):
 
 
 class CourseSerializers(serializers.ModelSerializer):
-
+    category = serializers.StringRelatedField()
     class Meta:
         model = Course
         fields = '__all__'
