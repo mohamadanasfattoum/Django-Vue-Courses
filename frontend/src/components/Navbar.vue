@@ -1,6 +1,6 @@
 
 <template>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg" :class="{'bg-dark' : darkMode}">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Online Courses</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

@@ -43,5 +43,7 @@ html.dark-mode{
 body.dark-mode{
   background-color: black;
   color: white;
+  width: 100%;
+  height: 100vh;
 }
 </style>
