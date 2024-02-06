@@ -29,13 +29,27 @@
 <script>
 
   import { courses } from '../tem-data'
-
+  import axios from 'axios'
+  
   export default {
     name: 'CourseDetailPage',
     data(){
       return{
-        course: courses.find(course => course.id == this.$route.params.course_id)
+        course: null
       }
+    },
+    created(){
+      this.getCourse()
+    },
+
+    methods:{
+      getCourse(){
+        const courses_id = this.$route.params.course_id
+        axios.get(`http://127.0.0.1:8000/courses/${courses_id}/api`)
+          .then(response => {
+            this.course = response.data;
+          })
+      },
     }
   }
 </script>

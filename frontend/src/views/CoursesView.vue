@@ -35,9 +35,9 @@
         filteredCourses: null
       }
     },
-  created(){
-    this.getCourses()
-  },
+    created(){
+      this.getCourses()
+    },
 
     methods:{
       getCourses(){
