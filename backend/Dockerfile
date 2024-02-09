@@ -1,26 +1,26 @@
-# Start with the Python 3.11 slim-bullseye base image
+# Use the official Python image as the base image
 FROM python:3.11.6-slim-bullseye
 
-# Set the PYTHONUNBUFFERED environment variable to ensure Python output is not buffered
-ENV PYTHONUNBUFFERED=1
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
-# Update the system and install necessary dependencies
-RUN apt-get update && apt-get install -y gcc libpq-dev
-
-# Set the working directory in the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the requirements.txt file to the working directory
-COPY requirements.txt /app/requirements.txt
+# Install dependencies
+COPY requirements.txt .
+RUN pip install -r requirements.txt
 
-# Install the Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy the Django project files to the container
+COPY . .
 
-# Copy all project files to the working directory
-COPY . /app/
+# Run Django migrations and collect static files
+RUN python manage.py migrate
+RUN python manage.py collectstatic --noinput
 
-# Expose any necessary ports (if applicable)
-# EXPOSE 8000
+# Expose the Django development server port
+EXPOSE 8000
 
-# Set the default command to run when the container starts
-CMD python manage.py runserver 0.0.0.0:8000
+# Start the Django development server
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
