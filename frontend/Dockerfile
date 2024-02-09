@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Build the Vue.js application
-RUN npm run build
+RUN npm run dev
 
 # Expose the Vue.js development server port
 EXPOSE 8080

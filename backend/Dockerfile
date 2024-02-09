@@ -8,16 +8,14 @@ ENV PYTHONUNBUFFERED 1
 # Set the working directory
 WORKDIR /app
 
-# Install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-
 # Copy the Django project files to the container
 COPY . .
 
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
 # Run Django migrations and collect static files
 RUN python manage.py migrate
-RUN python manage.py collectstatic --noinput
 
 # Expose the Django development server port
 EXPOSE 8000
