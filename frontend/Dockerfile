@@ -1,21 +1,19 @@
-# Use the official Node.js image as the base image
-FROM node:14
+# Use an official Node.js runtime as the base image
+FROM node:18
 
-# Set the working directory
-WORKDIR /app
+# Set the working directory inside the container
+WORKDIR /frontend
 
-# Install dependencies
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
+
+# Install project dependencies
 RUN npm install
 
-# Copy the Vue.js project files to the container
 COPY . .
 
-# Build the Vue.js application
-RUN npm run dev
-
-# Expose the Vue.js development server port
+# Expose the container port (adjust if necessary)
 EXPOSE 8080
 
-# Start the Vue.js development server
-CMD ["npm", "run", "serve"]
+# Define the command to run your application
+CMD [ "npm", "run", "dev" ]
