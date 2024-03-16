@@ -13,7 +13,7 @@ services:
   frontend:
     build:
       context: ./frontend
-    command: npm run dev
+    command: npm run dev 0.0.0.0:8080
     ports:
       - "8080:8080"
     volumes:

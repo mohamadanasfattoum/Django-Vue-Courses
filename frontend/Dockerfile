@@ -1,19 +1,23 @@
-# Use an official Node.js runtime as the base image
-FROM node:18
+# Use a specific Node.js version for consistency and security
+FROM node:16-alpine
 
 # Set the working directory inside the container
-WORKDIR /frontend
+WORKDIR /frontend/app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json first for efficient caching
 COPY package*.json ./
 
 # Install project dependencies
 RUN npm install
 
+# Copy all project files
 COPY . .
 
-# Expose the container port (adjust if necessary)
+# Build the Vue app for production (assuming it's a Vue app)
+RUN npm run build
+
+# Expose the correct port used by the Vue app
 EXPOSE 8080
 
-# Define the command to run your application
-CMD [ "npm", "run", "dev" ]
+# Start the Vue app in production mode
+CMD ["npm", "run", "dev","0.0.0.0:8080"]
