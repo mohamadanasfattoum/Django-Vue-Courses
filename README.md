@@ -60,3 +60,7 @@ Contributions to the Django-Vue-Courses project are welcome! If you find any iss
 ## Acknowledgements
 
 This project was created by [mohamadanasfattoum](https://github.com/mohamadanasfattoum).
+
+
+### project screenshot
+![](https://github.com/mohamadanasfattoum/Django-Vue-Courses/blob/main/Screenshot.png)
