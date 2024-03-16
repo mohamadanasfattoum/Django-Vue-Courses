@@ -2,6 +2,9 @@
 
 Django-Vue-Courses is a project that aims to clone the Udemy Courses Filter Page using Django and Vue.js. This project provides a web application where users can search and filter Udemy courses based on various criteria.
 
+### project screenshot
+![](https://github.com/mohamadanasfattoum/Django-Vue-Courses/blob/main/Screenshot.png)
+
 ## Features
 
 - Search and filter Udemy courses
@@ -61,6 +64,3 @@ Contributions to the Django-Vue-Courses project are welcome! If you find any iss
 
 This project was created by [mohamadanasfattoum](https://github.com/mohamadanasfattoum).
 
-
-### project screenshot
-![](https://github.com/mohamadanasfattoum/Django-Vue-Courses/blob/main/Screenshot.png)
